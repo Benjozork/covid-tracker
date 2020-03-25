@@ -9,7 +9,7 @@ const numberFormat = Intl.NumberFormat('en');
 export function presentForGlobal() {
     Client.getLatestData().then(latestData => {
         document.querySelector('#data-active').textContent = numberFormat.format(latestData.confirmed);
-        document.querySelector('#data-recoveries').textContent = numberFormat.format(latestData.recovered);
+        // document.querySelector('#data-recoveries').textContent = numberFormat.format(latestData.recovered);
         document.querySelector('#data-deaths').textContent = numberFormat.format(latestData.deaths);
     });
     Client.getLastUpdate().then(update => {
@@ -23,7 +23,7 @@ export function presentForGlobal() {
 export function presentForLocation(countryCode: string) {
     Client.getLocation(countryCode).then(data => {
         document.querySelector('#data-active').textContent = numberFormat.format(data.latest.confirmed);
-        document.querySelector('#data-recoveries').textContent = numberFormat.format(data.latest.recovered);
+        // document.querySelector('#data-recoveries').textContent = numberFormat.format(data.latest.recovered);
         document.querySelector('#data-deaths').textContent = numberFormat.format(data.latest.deaths);
     })
 }
